@@ -123,13 +123,28 @@ startGenerate();
 form.addEventListener('change', startGenerate);
 form.addEventListener('submit', startGenerate);
 
-lengthRange.addEventListener("input", () => {
+lengthRange.addEventListener('input', () => {
   startGenerate();
 });
-
 
 clipboardBtn.addEventListener('click', () => {
   if (navigator.clipboard) {
     navigator.clipboard.writeText(generatedPassword.map((a) => a[0]).join(''));
   }
 });
+
+if (import.meta.env.PROD) {
+  const script = document.createElement('script');
+  script.src = 'https://www.googletagmanager.com/gtag/js?id=G-VHG21MMKWX';
+  script.onload = () => {
+    // @ts-ignore
+    const dataLayer = (window.dataLayer = window.dataLayer || []);
+    function gtag(a: unknown, b: unknown) {
+      dataLayer.push([a, b]);
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-VHG21MMKWX');
+  };
+
+  document.head.appendChild(script);
+}
