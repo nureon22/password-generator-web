@@ -61,6 +61,10 @@ function generate(options: GenerateOptions) {
 
   let result: [string, string][] = [];
 
+  if (!allChars.length) {
+    return result;
+  }
+
   // Make sure to include all the different characters;
   if (length >= allChars.length) {
     for (let i = 0, l = Math.floor(length / allChars.length); i < l; i++) {
