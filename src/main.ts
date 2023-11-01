@@ -90,7 +90,10 @@ function generate(options: GenerateOptions) {
 
 const resultOutput = document.getElementById('result-output')!;
 const clipboardBtn = document.getElementById('clipboard-btn')!;
-const lengthRange = document.getElementById('length-range')!;
+const lengthRange = document.getElementById('length-range') as HTMLInputElement;
+const lengthNumber = document.getElementById(
+  'length-number'
+) as HTMLInputElement;
 const form = document.querySelector('form')!;
 
 let generatedPassword: [string, string][] = [];
@@ -128,7 +131,20 @@ form.addEventListener('change', startGenerate);
 form.addEventListener('submit', startGenerate);
 
 lengthRange.addEventListener('input', () => {
+  lengthNumber.value = lengthRange.value;
   startGenerate();
+});
+
+lengthNumber.addEventListener('input', () => {
+  const { min, value, max } = lengthNumber;
+  lengthRange.value = Math.min(Math.max(+min, +value), +max) + "";
+  startGenerate();
+});
+
+lengthNumber.addEventListener('change', () => {
+  const { min, value, max } = lengthNumber;
+  lengthNumber.value = Math.min(Math.max(+min, +value), +max) + "";
+  lengthRange.value = lengthNumber.value;
 });
 
 clipboardBtn.addEventListener('click', () => {
