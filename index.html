@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/icon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + TS</title>
+    <script type="module" src="/src/main.ts"></script>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      defer
+      src="https://www.googletagmanager.com/gtag/js?id=G-FX8EK36CT7"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      gtag('config', 'G-FX8EK36CT7');
+    </script>
+  </head>
+  <body>
+    <header>
+      <h1>Password Generator</h1>
+      <p>Generate strong and secure password</p>
+    </header>
+    <main>
+      <form class="main-container">
+        <div class="result-container">
+          <div id="result-output" class="result-output"></div>
+          <button type="submit" class="btn">
+            <svg viewBox="0 -960 960 960">
+              <path
+                d="M480-160q-134 0-227-93t-93-227q0-134 93-227t227-93q69 0 132 28.5T720-690v-110h80v280H520v-80h168q-32-56-87.5-88T480-720q-100 0-170 70t-70 170q0 100 70 170t170 70q77 0 139-44t87-116h84q-28 106-114 173t-196 67Z"
+              />
+            </svg>
+          </button>
+          <button type="button" class="btn" id="clipboard-btn">
+            <svg viewBox="0 -960 960 960">
+              <path
+                d="M360-240q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360Zm0-80h360v-480H360v480ZM200-80q-33 0-56.5-23.5T120-160v-560h80v560h440v80H200Zm160-240v-480 480Z"
+              />
+            </svg>
+          </button>
+        </div>
+        <div class="options">
+          <label for="uppercases">
+            <input type="checkbox" checked name="uppercases" id="uppercases" />
+            <span class="btn">A-Z</span>
+          </label>
+          <label for="lowercases">
+            <input type="checkbox" checked name="lowercases" id="lowercases" />
+            <span class="btn">a-z</span>
+          </label>
+          <label for="numbers">
+            <input type="checkbox" checked name="numbers" id="numbers" />
+            <span class="btn">0-9</span>
+          </label>
+          <label for="symbols">
+            <input type="checkbox" checked name="symbols" id="symbols" />
+            <span class="btn">$%#&...</span>
+          </label>
+          <label for="extended-latin">
+            <input type="checkbox" name="extended-latin" id="extended-latin" />
+            <span class="btn">Extended Latin</span>
+          </label>
+        </div>
+        <div class="length-container">
+          <span>Length: </span>
+          <input
+            type="range"
+            name="length-range"
+            id="length-range"
+            min="4"
+            max="64"
+            value="16"
+          />
+          <input type="number" name="length-manual" id="length-manual" min="4" max="64" value="16" />
+        </div>
+      </form>
+    </main>
+    <footer>
+      <p>
+        Tired of choosing a secure password every time you create a new account?
+        This password generator generates very strong and secure passwords
+        without any effort. Choose what you want to include in your password.
+      </p>
+      <p>Inspired from <b>KeePassXC</b></p>
+    </footer>
+  </body>
+</html>

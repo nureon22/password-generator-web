@@ -1,0 +1,206 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: hsl(212deg, 70%, 20%);
+  --on-primary-color: hsl(0deg, 0%, 92%);
+  --outline-color: hsla(0deg, 0%, 50%, 0.5);
+
+  --uppercases-color: hsl(0deg, 0%, 72%);
+  --lowercases-color: hsl(0deg, 0%, 92%);
+  --numbers-color: hsl(120deg, 80%, 50%);
+  --symbols-color: hsl(200deg, 80%, 60%);
+  --extended-latin-color: hsl(270, 100%, 70%);
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  background-color: hsl(200deg, 8%, 12%);
+  color: hsl(0deg, 0%, 92%);
+  height: 100%;
+  margin: 0px;
+  padding: 8px;
+  font-family: monospace;
+}
+
+header {
+  text-align: center;
+}
+
+footer {
+  max-width: 70ch;
+  margin: 80px auto 0px;
+  font-size: 14px;
+}
+
+.main-container {
+  display: block;
+  width: 100%;
+  max-width: 800px;
+  border: 1px solid var(--outline-color);
+  border-radius: 2px;
+  padding: 24px 8px;
+  margin: 40px auto 0px;
+}
+
+.result-container {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 40px;
+  padding: 4px;
+}
+
+.result-output {
+  display: flex;
+  align-items: center;
+  font-family: monospace;
+  font-size: 14px;
+  border: 1px solid var(--outline-color);
+  height: 40px;
+  width: 100%;
+  border-radius: 2px;
+  padding: 0px 8px;
+  letter-spacing: 1px;
+  overflow: auto;
+}
+
+.result-output::-webkit-scrollbar {
+  height: 8px;
+}
+
+.result-output::-webkit-scrollbar-thumb {
+  background-color: hsla(0deg, 0%, 50%, 0.75);
+  border-radius: 8px;
+  border: 1px solid transparent;
+  background-clip: padding-box;
+}
+
+.result-output::-webkit-scrollbar-thumb:active {
+  background-color: hsla(0deg, 0%, 50%, 1);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  background-color: hsl(0deg, 0%, 12%);
+  color: white;
+  border: 1px solid var(--outline-color);
+  border-radius: 2px;
+  height: 40px;
+  padding: 0px 8px;
+  user-select: none;
+  font-family: monospace;
+  font-size: 14px;
+}
+
+.btn:hover {
+  background-color: hsl(0deg, 0%, 8%);
+}
+
+.btn:active {
+  background-color: hsl(0deg, 0%, 12%);
+}
+
+.btn svg {
+  fill: currentColor;
+  width: 20px;
+  height: 20px;
+}
+
+.options {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-bottom: 40px;
+}
+
+.options label {
+  position: relative;
+}
+
+.options label input {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 1px;
+  height: 1px;
+  margin: 0px;
+  clip: rect(0 0 0 0);
+}
+
+.options label input+.btn {
+  padding: 0px 20px;
+}
+
+.options label input:checked+.btn {
+  background-color: var(--primary-color);
+  color: var(--on-primary-color);
+}
+
+.options label[for="symbols"] {
+  letter-spacing: 1px;
+}
+
+.length-container {
+  display: flex;
+  justify-content: stretch;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+}
+
+.length-container input[type="range"] {
+  width: 100%;
+}
+
+.length-container input[type="number"] {
+  width: 64px;
+  flex-shrink: 0;
+  background-color: hsl(0deg, 0%, 24%);
+  color: hsl(0deg, 0%, 92%);
+  border: none;
+  padding: 0px 8px;
+  height: 28px;
+  font-family: monospace;
+  border-radius: 2px;
+}
+
+input[type="range"] {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  appearance: none;
+  height: 24px;
+  outline: none;
+}
+
+input[type="range"]::range-track {
+  background-color: hsla(0deg, 0%, 24%);
+  height: 8px;
+  appearance: none;
+  border-radius: 2px;
+}
+
+input[type="range"]::range-thumb {
+  background-color: hsla(0deg, 0%, 50%, .24);
+  border-radius: 2px;
+  appearance: none;
+  width: 12px;
+  height: 24px;
+  border: 1px solid hsl(0deg, 0%, 50%);
+}
+
+input[type="range"]:focus::range-thumb {
+  border-color: hsl(0deg, 0%, 80%);
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  transform: translateY(calc(-50% + 4px));
+}
