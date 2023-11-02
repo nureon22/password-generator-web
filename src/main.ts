@@ -159,8 +159,8 @@ if (import.meta.env.PROD) {
   script.onload = () => {
     // @ts-ignore
     const dataLayer = (window.dataLayer = window.dataLayer || []);
-    function gtag(a: unknown, b: unknown) {
-      dataLayer.push([a, b]);
+    function gtag(_a: unknown, _b: unknown) {
+      dataLayer.push(arguments);
     }
     gtag('js', new Date());
     gtag('config', 'G-VHG21MMKWX');
